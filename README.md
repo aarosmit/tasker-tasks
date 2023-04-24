@@ -4,7 +4,7 @@ Please feel free to use and modify any of these tasks as you see fit! If you fin
 
 - [get-precipitation](precipitation.prf.xml)
   - This profile notifies you of any precipitation within the next hour for your current location.
-    - It fetches your location, then a weather forecast for that location using [OpenWeatherMap's OneCall API 3.0](https://openweathermap.org/api/one-call-3) every five minutes.
+    - Every five minutes, it fetches your location and then a weather forecast for that location using [OpenWeatherMap's OneCall API 3.0](https://openweathermap.org/api/one-call-3).
     - It supports liquid and solid states of precipitation, but is only based on the temperature of your current location (if temp < 32, then "snow"). I have chosen the terms "rain" and "snow" to identify these two forms of precipitation.
     - The notifications it returns have two primary states:
       - If it is currently raining/snowing, the notification will let you know when the rain is expected to stop or if it will continue for the next hour.
