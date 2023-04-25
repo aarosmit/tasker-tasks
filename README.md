@@ -2,6 +2,8 @@
 
 Please feel free to use and modify any of these tasks as you see fit! If you find a bug, please [submit an issue in this repository](https://github.com/aarosmit/tasker-tasks/issues). If you make a task better, [submit an issue](https://github.com/aarosmit/tasker-tasks/issues) and I can try to incorporate your changes!
 
+**Downloads are available in the [Releases page](https://github.com/aarosmit/tasker-tasks/releases)!**
+
 ## [Will it rain?](Will_it_rain_.prf.xml)
 
   - This profile notifies you of any precipitation within the next hour for your current location.
