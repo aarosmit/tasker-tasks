@@ -1,7 +1,7 @@
 <TaskerData sr="" dvi="1" tv="6.1.3-beta">
 	<Profile sr="prof36" ve="2">
 		<cdate>1681849817802</cdate>
-		<edate>1682425638946</edate>
+		<edate>1682445820204</edate>
 		<flags>8</flags>
 		<id>36</id>
 		<mid0>28</mid0>
@@ -26,10 +26,10 @@ More details can be found at https://github.com/aarosmit/tasker-tasks</d>
 	</Profile>
 	<Task sr="task28">
 		<cdate>1681847562236</cdate>
-		<edate>1682425619454</edate>
+		<edate>1682445820204</edate>
 		<id>28</id>
 		<nme>get-precipitation</nme>
-		<pri>6</pri>
+		<pri>100</pri>
 		<Action sr="act0" ve="7">
 			<code>366</code>
 			<Bundle sr="arg0">
@@ -109,28 +109,87 @@ The size of the response in bytes&lt;/_array_net.dinglisch.android.tasker.RELEVA
 			<Int sr="arg9" val="0"/>
 		</Action>
 		<Action sr="act10" ve="7">
-			<code>779</code>
-			<Str sr="arg0" ve="3">%PrecipitationState will continue for the next hour ☔</Str>
-			<Int sr="arg1" val="0"/>
-		</Action>
-		<Action sr="act11" ve="7">
-			<code>779</code>
-			<Str sr="arg0" ve="3">%PrecipitationState will start in %MinInt minutes ☔</Str>
-			<Int sr="arg1" val="0"/>
-		</Action>
-		<Action sr="act12" ve="7">
-			<code>779</code>
-			<Str sr="arg0" ve="3">%PrecipitationState will start in %MinInt minute ☔</Str>
-			<Int sr="arg1" val="0"/>
-		</Action>
-		<Action sr="act13" ve="7">
-			<code>779</code>
-			<Str sr="arg0" ve="3">Your current location does not have a minutely forecast 😞</Str>
-			<Int sr="arg1" val="0"/>
-		</Action>
-		<Action sr="act14" ve="7">
 			<code>37</code>
 			<coll>false</coll>
+			<label>If temp is &gt; 32 then "rain", else "snow"</label>
+			<ConditionList sr="if">
+				<Condition sr="c0" ve="3">
+					<lhs>%http_data.current.temp</lhs>
+					<op>7</op>
+					<rhs>32</rhs>
+				</Condition>
+			</ConditionList>
+		</Action>
+		<Action sr="act11" ve="7">
+			<code>547</code>
+			<Str sr="arg0" ve="3">%PrecipitationState</Str>
+			<Str sr="arg1" ve="3">rain</Str>
+			<Int sr="arg2" val="0"/>
+			<Int sr="arg3" val="0"/>
+			<Int sr="arg4" val="0"/>
+			<Int sr="arg5" val="3"/>
+			<Int sr="arg6" val="1"/>
+		</Action>
+		<Action sr="act12" ve="7">
+			<code>43</code>
+		</Action>
+		<Action sr="act13" ve="7">
+			<code>547</code>
+			<Str sr="arg0" ve="3">%PrecipitationState</Str>
+			<Str sr="arg1" ve="3">snow</Str>
+			<Int sr="arg2" val="0"/>
+			<Int sr="arg3" val="0"/>
+			<Int sr="arg4" val="0"/>
+			<Int sr="arg5" val="3"/>
+			<Int sr="arg6" val="1"/>
+		</Action>
+		<Action sr="act14" ve="7">
+			<code>38</code>
+		</Action>
+		<Action sr="act15" ve="7">
+			<code>548</code>
+			<label>Flash current coords and accuracy when task runs</label>
+			<Str sr="arg0" ve="3">%gl_coordinates (%gl_coordinates_accuracy)</Str>
+			<Int sr="arg1" val="0"/>
+			<Str sr="arg10" ve="3"/>
+			<Int sr="arg11" val="1"/>
+			<Int sr="arg12" val="0"/>
+			<Str sr="arg13" ve="3"/>
+			<Int sr="arg14" val="0"/>
+			<Int sr="arg2" val="0"/>
+			<Str sr="arg3" ve="3"/>
+			<Str sr="arg4" ve="3"/>
+			<Str sr="arg5" ve="3"/>
+			<Str sr="arg6" ve="3"/>
+			<Str sr="arg7" ve="3"/>
+			<Str sr="arg8" ve="3"/>
+			<Int sr="arg9" val="1"/>
+		</Action>
+		<Action sr="act16" ve="7">
+			<code>779</code>
+			<label>Cancel any remaining notification from previous run</label>
+			<Str sr="arg0" ve="3">%IntensityDesc %PrecipitationState will continue for %MinuteInteger minutes ☔</Str>
+			<Int sr="arg1" val="0"/>
+		</Action>
+		<Action sr="act17" ve="7">
+			<code>779</code>
+			<Str sr="arg0" ve="3">%IntensityDesc %PrecipitationState will continue for %MinuteInteger minute ☔</Str>
+			<Int sr="arg1" val="0"/>
+		</Action>
+		<Action sr="act18" ve="7">
+			<code>779</code>
+			<Str sr="arg0" ve="3">%IntensityDesc %PrecipitationState will continue for the next hour ☔</Str>
+			<Int sr="arg1" val="0"/>
+		</Action>
+		<Action sr="act19" ve="7">
+			<code>779</code>
+			<Str sr="arg0" ve="3">%IntensityDesc %PrecipitationState will start in %MinuteInteger minutes ☔</Str>
+			<Int sr="arg1" val="0"/>
+		</Action>
+		<Action sr="act2" ve="7">
+			<code>37</code>
+			<coll>true</coll>
+			<label>If request to API failed</label>
 			<ConditionList sr="if">
 				<bool0>Or</bool0>
 				<Condition sr="c0" ve="3">
@@ -145,7 +204,105 @@ The size of the response in bytes&lt;/_array_net.dinglisch.android.tasker.RELEVA
 				</Condition>
 			</ConditionList>
 		</Action>
-		<Action sr="act15" ve="7">
+		<Action sr="act20" ve="7">
+			<code>779</code>
+			<Str sr="arg0" ve="3">%IntensityDesc %PrecipitationState will start in %MinuteInteger minute ☔</Str>
+			<Int sr="arg1" val="0"/>
+		</Action>
+		<Action sr="act21" ve="7">
+			<code>547</code>
+			<label>Reset to 0 after previous task run</label>
+			<Str sr="arg0" ve="3">%MinuteInteger</Str>
+			<Str sr="arg1" ve="3">0</Str>
+			<Int sr="arg2" val="0"/>
+			<Int sr="arg3" val="0"/>
+			<Int sr="arg4" val="0"/>
+			<Int sr="arg5" val="3"/>
+			<Int sr="arg6" val="1"/>
+		</Action>
+		<Action sr="act22" ve="7">
+			<code>547</code>
+			<label>Reset to 0 after previous task run</label>
+			<Str sr="arg0" ve="3">%PrecipitationIntensity</Str>
+			<Str sr="arg1" ve="3">0</Str>
+			<Int sr="arg2" val="0"/>
+			<Int sr="arg3" val="0"/>
+			<Int sr="arg4" val="0"/>
+			<Int sr="arg5" val="3"/>
+			<Int sr="arg6" val="1"/>
+		</Action>
+		<Action sr="act23" ve="7">
+			<code>39</code>
+			<coll>false</coll>
+			<label>Loop through all minutes to get max intensity</label>
+			<Str sr="arg0" ve="3">%Minute</Str>
+			<Str sr="arg1" ve="3">%http_data.minutely()</Str>
+			<Int sr="arg2" val="1"/>
+		</Action>
+		<Action sr="act24" ve="7">
+			<code>37</code>
+			<coll>false</coll>
+			<ConditionList sr="if">
+				<Condition sr="c0" ve="3">
+					<lhs>%Minute.precipitation</lhs>
+					<op>7</op>
+					<rhs>%PrecipitationIntensity</rhs>
+				</Condition>
+			</ConditionList>
+		</Action>
+		<Action sr="act25" ve="7">
+			<code>547</code>
+			<Str sr="arg0" ve="3">%PrecipitationIntensity</Str>
+			<Str sr="arg1" ve="3">%Minute.precipitation</Str>
+			<Int sr="arg2" val="0"/>
+			<Int sr="arg3" val="0"/>
+			<Int sr="arg4" val="0"/>
+			<Int sr="arg5" val="3"/>
+			<Int sr="arg6" val="1"/>
+		</Action>
+		<Action sr="act26" ve="7">
+			<code>37</code>
+			<coll>false</coll>
+			<label>Classify intensity of precipitation</label>
+			<ConditionList sr="if">
+				<Condition sr="c0" ve="3">
+					<lhs>%PrecipitationIntensity</lhs>
+					<op>6</op>
+					<rhs>2.5</rhs>
+				</Condition>
+			</ConditionList>
+		</Action>
+		<Action sr="act27" ve="7">
+			<code>547</code>
+			<Str sr="arg0" ve="3">%IntensityDesc</Str>
+			<Str sr="arg1" ve="3">Light</Str>
+			<Int sr="arg2" val="0"/>
+			<Int sr="arg3" val="0"/>
+			<Int sr="arg4" val="0"/>
+			<Int sr="arg5" val="3"/>
+			<Int sr="arg6" val="1"/>
+		</Action>
+		<Action sr="act28" ve="7">
+			<code>43</code>
+			<ConditionList sr="if">
+				<Condition sr="c0" ve="3">
+					<lhs>%PrecipitationIntensity</lhs>
+					<op>6</op>
+					<rhs>7.5</rhs>
+				</Condition>
+			</ConditionList>
+		</Action>
+		<Action sr="act29" ve="7">
+			<code>547</code>
+			<Str sr="arg0" ve="3">%IntensityDesc</Str>
+			<Str sr="arg1" ve="3">Moderate</Str>
+			<Int sr="arg2" val="0"/>
+			<Int sr="arg3" val="0"/>
+			<Int sr="arg4" val="0"/>
+			<Int sr="arg5" val="3"/>
+			<Int sr="arg6" val="1"/>
+		</Action>
+		<Action sr="act3" ve="7">
 			<code>548</code>
 			<Str sr="arg0" ve="3">Could not get weather 😞</Str>
 			<Int sr="arg1" val="0"/>
@@ -163,16 +320,273 @@ The size of the response in bytes&lt;/_array_net.dinglisch.android.tasker.RELEVA
 			<Str sr="arg8" ve="3"/>
 			<Int sr="arg9" val="1"/>
 		</Action>
-		<Action sr="act16" ve="7">
+		<Action sr="act30" ve="7">
+			<code>43</code>
+		</Action>
+		<Action sr="act31" ve="7">
+			<code>547</code>
+			<Str sr="arg0" ve="3">%IntensityDesc</Str>
+			<Str sr="arg1" ve="3">Heavy</Str>
+			<Int sr="arg2" val="0"/>
+			<Int sr="arg3" val="0"/>
+			<Int sr="arg4" val="0"/>
+			<Int sr="arg5" val="3"/>
+			<Int sr="arg6" val="1"/>
+		</Action>
+		<Action sr="act32" ve="7">
+			<code>38</code>
+		</Action>
+		<Action sr="act33" ve="7">
+			<code>38</code>
+		</Action>
+		<Action sr="act34" ve="7">
+			<code>888</code>
+			<label>Add 1 to check next minute</label>
+			<Str sr="arg0" ve="3">%MinuteInteger</Str>
+			<Int sr="arg1" val="1"/>
+			<Int sr="arg2" val="0"/>
+		</Action>
+		<Action sr="act35" ve="7">
+			<code>40</code>
+		</Action>
+		<Action sr="act36" ve="7">
+			<code>547</code>
+			<label>Reset to 0 for next loop</label>
+			<Str sr="arg0" ve="3">%MinuteInteger</Str>
+			<Str sr="arg1" ve="3">0</Str>
+			<Int sr="arg2" val="0"/>
+			<Int sr="arg3" val="0"/>
+			<Int sr="arg4" val="0"/>
+			<Int sr="arg5" val="3"/>
+			<Int sr="arg6" val="1"/>
+		</Action>
+		<Action sr="act37" ve="7">
+			<code>37</code>
+			<coll>false</coll>
+			<label>If currently raining</label>
+			<ConditionList sr="if">
+				<Condition sr="c0" ve="3">
+					<lhs>%http_data.minutely.precipitation</lhs>
+					<op>7</op>
+					<rhs>0</rhs>
+				</Condition>
+			</ConditionList>
+		</Action>
+		<Action sr="act38" ve="7">
+			<code>39</code>
+			<coll>false</coll>
+			<label>Loop through all minutes until rain stops</label>
+			<Str sr="arg0" ve="3">%Minute</Str>
+			<Str sr="arg1" ve="3">%http_data.minutely()</Str>
+			<Int sr="arg2" val="1"/>
+		</Action>
+		<Action sr="act39" ve="7">
+			<code>37</code>
+			<coll>false</coll>
+			<label>If rain stops</label>
+			<ConditionList sr="if">
+				<Condition sr="c0" ve="3">
+					<lhs>%Minute.precipitation</lhs>
+					<op>0</op>
+					<rhs>0</rhs>
+				</Condition>
+			</ConditionList>
+		</Action>
+		<Action sr="act4" ve="7">
 			<code>137</code>
 			<Int sr="arg0" val="0"/>
 			<Str sr="arg1" ve="3"/>
 		</Action>
-		<Action sr="act17" ve="7">
+		<Action sr="act40" ve="7">
+			<code>37</code>
+			<label>in 1 minute</label>
+			<ConditionList sr="if">
+				<Condition sr="c0" ve="3">
+					<lhs>%MinuteInteger</lhs>
+					<op>0</op>
+					<rhs>1</rhs>
+				</Condition>
+			</ConditionList>
+		</Action>
+		<Action sr="act41" ve="7">
+			<code>523</code>
+			<label>Rain stops in next minute</label>
+			<Str sr="arg0" ve="3">%IntensityDesc %PrecipitationState will continue for %MinuteInteger minute ☔</Str>
+			<Str sr="arg1" ve="3"/>
+			<Str sr="arg10" ve="3"/>
+			<Str sr="arg11" ve="3">weather</Str>
+			<Img sr="arg2" ve="2">
+				<nme>mw_image_grain</nme>
+			</Img>
+			<Int sr="arg3" val="0"/>
+			<Int sr="arg4" val="0"/>
+			<Int sr="arg5" val="3"/>
+			<Int sr="arg6" val="0"/>
+			<Int sr="arg7" val="0"/>
+			<Int sr="arg8" val="0"/>
+			<Str sr="arg9" ve="3"/>
+		</Action>
+		<Action sr="act42" ve="7">
+			<code>43</code>
+			<label>in the next hour</label>
+		</Action>
+		<Action sr="act43" ve="7">
+			<code>523</code>
+			<label>Rain stops any other minute in the next hour</label>
+			<Str sr="arg0" ve="3">%IntensityDesc %PrecipitationState will continue for %MinuteInteger minutes ☔</Str>
+			<Str sr="arg1" ve="3"/>
+			<Str sr="arg10" ve="3"/>
+			<Str sr="arg11" ve="3">weather</Str>
+			<Img sr="arg2" ve="2">
+				<nme>mw_image_grain</nme>
+			</Img>
+			<Int sr="arg3" val="0"/>
+			<Int sr="arg4" val="0"/>
+			<Int sr="arg5" val="3"/>
+			<Int sr="arg6" val="0"/>
+			<Int sr="arg7" val="0"/>
+			<Int sr="arg8" val="0"/>
+			<Str sr="arg9" ve="3"/>
+		</Action>
+		<Action sr="act44" ve="7">
 			<code>38</code>
 		</Action>
-		<Action sr="act18" ve="7">
+		<Action sr="act45" ve="7">
+			<code>137</code>
+			<Int sr="arg0" val="0"/>
+			<Str sr="arg1" ve="3"/>
+		</Action>
+		<Action sr="act46" ve="7">
+			<code>38</code>
+		</Action>
+		<Action sr="act47" ve="7">
+			<code>888</code>
+			<label>Add 1 to check next minute</label>
+			<Str sr="arg0" ve="3">%MinuteInteger</Str>
+			<Int sr="arg1" val="1"/>
+			<Int sr="arg2" val="0"/>
+		</Action>
+		<Action sr="act48" ve="7">
+			<code>40</code>
+		</Action>
+		<Action sr="act49" ve="7">
+			<code>523</code>
+			<label>Rain continues for entire hour</label>
+			<Str sr="arg0" ve="3">%IntensityDesc %PrecipitationState will continue for the next hour ☔</Str>
+			<Str sr="arg1" ve="3"/>
+			<Str sr="arg10" ve="3"/>
+			<Str sr="arg11" ve="3">weather</Str>
+			<Img sr="arg2" ve="2">
+				<nme>mw_image_grain</nme>
+			</Img>
+			<Int sr="arg3" val="0"/>
+			<Int sr="arg4" val="0"/>
+			<Int sr="arg5" val="3"/>
+			<Int sr="arg6" val="0"/>
+			<Int sr="arg7" val="0"/>
+			<Int sr="arg8" val="0"/>
+			<Str sr="arg9" ve="3"/>
+		</Action>
+		<Action sr="act5" ve="7">
+			<code>38</code>
+		</Action>
+		<Action sr="act50" ve="7">
+			<code>137</code>
+			<Int sr="arg0" val="0"/>
+			<Str sr="arg1" ve="3"/>
+		</Action>
+		<Action sr="act51" ve="7">
+			<code>38</code>
+		</Action>
+		<Action sr="act52" ve="7">
+			<code>547</code>
+			<label>Reset to 0 for next loop</label>
+			<Str sr="arg0" ve="3">%MinuteInteger</Str>
+			<Str sr="arg1" ve="3">0</Str>
+			<Int sr="arg2" val="0"/>
+			<Int sr="arg3" val="0"/>
+			<Int sr="arg4" val="0"/>
+			<Int sr="arg5" val="3"/>
+			<Int sr="arg6" val="1"/>
+		</Action>
+		<Action sr="act53" ve="7">
+			<code>39</code>
+			<coll>false</coll>
+			<label>Loop through all minutes until rain starts</label>
+			<Str sr="arg0" ve="3">%Minute</Str>
+			<Str sr="arg1" ve="3">%http_data.minutely()</Str>
+			<Int sr="arg2" val="1"/>
+		</Action>
+		<Action sr="act54" ve="7">
 			<code>37</code>
+			<coll>false</coll>
+			<label>If there is rain</label>
+			<ConditionList sr="if">
+				<Condition sr="c0" ve="3">
+					<lhs>%Minute.precipitation</lhs>
+					<op>7</op>
+					<rhs>0</rhs>
+				</Condition>
+			</ConditionList>
+		</Action>
+		<Action sr="act55" ve="7">
+			<code>37</code>
+			<label>in 1 minute</label>
+			<ConditionList sr="if">
+				<Condition sr="c0" ve="3">
+					<lhs>%MinuteInteger</lhs>
+					<op>0</op>
+					<rhs>1</rhs>
+				</Condition>
+			</ConditionList>
+		</Action>
+		<Action sr="act56" ve="7">
+			<code>523</code>
+			<label>Rain will start in 1 minute</label>
+			<Str sr="arg0" ve="3">%IntensityDesc %PrecipitationState will start in %MinuteInteger minute ☔</Str>
+			<Str sr="arg1" ve="3"/>
+			<Str sr="arg10" ve="3"/>
+			<Str sr="arg11" ve="3">weather</Str>
+			<Img sr="arg2" ve="2">
+				<nme>mw_image_grain</nme>
+			</Img>
+			<Int sr="arg3" val="0"/>
+			<Int sr="arg4" val="0"/>
+			<Int sr="arg5" val="3"/>
+			<Int sr="arg6" val="0"/>
+			<Int sr="arg7" val="0"/>
+			<Int sr="arg8" val="0"/>
+			<Str sr="arg9" ve="3"/>
+		</Action>
+		<Action sr="act57" ve="7">
+			<code>43</code>
+			<label>in any other minute within the hour</label>
+		</Action>
+		<Action sr="act58" ve="7">
+			<code>523</code>
+			<label>Rain will start in any other minute within the hour</label>
+			<Str sr="arg0" ve="3">%IntensityDesc %PrecipitationState will start in %MinuteInteger minutes ☔</Str>
+			<Str sr="arg1" ve="3"/>
+			<Str sr="arg10" ve="3"/>
+			<Str sr="arg11" ve="3">weather</Str>
+			<Img sr="arg2" ve="2">
+				<nme>mw_image_grain</nme>
+			</Img>
+			<Int sr="arg3" val="0"/>
+			<Int sr="arg4" val="0"/>
+			<Int sr="arg5" val="3"/>
+			<Int sr="arg6" val="0"/>
+			<Int sr="arg7" val="0"/>
+			<Int sr="arg8" val="0"/>
+			<Str sr="arg9" ve="3"/>
+		</Action>
+		<Action sr="act59" ve="7">
+			<code>38</code>
+		</Action>
+		<Action sr="act6" ve="7">
+			<code>37</code>
+			<coll>true</coll>
+			<label>If "minutely" forecast is not available</label>
 			<ConditionList sr="if">
 				<Condition sr="c0" ve="3">
 					<lhs>%http_data.minutely</lhs>
@@ -181,7 +595,25 @@ The size of the response in bytes&lt;/_array_net.dinglisch.android.tasker.RELEVA
 				</Condition>
 			</ConditionList>
 		</Action>
-		<Action sr="act19" ve="7">
+		<Action sr="act60" ve="7">
+			<code>137</code>
+			<Int sr="arg0" val="0"/>
+			<Str sr="arg1" ve="3"/>
+		</Action>
+		<Action sr="act61" ve="7">
+			<code>38</code>
+		</Action>
+		<Action sr="act62" ve="7">
+			<code>888</code>
+			<label>Add 1 to check next minute</label>
+			<Str sr="arg0" ve="3">%MinuteInteger</Str>
+			<Int sr="arg1" val="1"/>
+			<Int sr="arg2" val="0"/>
+		</Action>
+		<Action sr="act63" ve="7">
+			<code>40</code>
+		</Action>
+		<Action sr="act7" ve="7">
 			<code>548</code>
 			<Str sr="arg0" ve="3">Your current location does not have a minutely forecast 😞</Str>
 			<Int sr="arg1" val="0"/>
@@ -199,303 +631,13 @@ The size of the response in bytes&lt;/_array_net.dinglisch.android.tasker.RELEVA
 			<Str sr="arg8" ve="3"/>
 			<Int sr="arg9" val="1"/>
 		</Action>
-		<Action sr="act2" ve="7">
-			<code>37</code>
-			<ConditionList sr="if">
-				<Condition sr="c0" ve="3">
-					<lhs>%http_data.current.temp</lhs>
-					<op>7</op>
-					<rhs>32</rhs>
-				</Condition>
-			</ConditionList>
-		</Action>
-		<Action sr="act20" ve="7">
-			<code>137</code>
-			<Int sr="arg0" val="0"/>
-			<Str sr="arg1" ve="3"/>
-		</Action>
-		<Action sr="act21" ve="7">
-			<code>38</code>
-		</Action>
-		<Action sr="act22" ve="7">
-			<code>547</code>
-			<Str sr="arg0" ve="3">%MinInt</Str>
-			<Str sr="arg1" ve="3">0</Str>
-			<Int sr="arg2" val="0"/>
-			<Int sr="arg3" val="0"/>
-			<Int sr="arg4" val="0"/>
-			<Int sr="arg5" val="3"/>
-			<Int sr="arg6" val="1"/>
-		</Action>
-		<Action sr="act23" ve="7">
-			<code>37</code>
-			<coll>false</coll>
-			<ConditionList sr="if">
-				<Condition sr="c0" ve="3">
-					<lhs>%http_data.minutely.precipitation</lhs>
-					<op>7</op>
-					<rhs>0</rhs>
-				</Condition>
-			</ConditionList>
-		</Action>
-		<Action sr="act24" ve="7">
-			<code>39</code>
-			<coll>false</coll>
-			<Str sr="arg0" ve="3">%Minute</Str>
-			<Str sr="arg1" ve="3">%http_data.minutely()</Str>
-			<Int sr="arg2" val="1"/>
-		</Action>
-		<Action sr="act25" ve="7">
-			<code>37</code>
-			<coll>false</coll>
-			<ConditionList sr="if">
-				<Condition sr="c0" ve="3">
-					<lhs>%Minute.precipitation</lhs>
-					<op>0</op>
-					<rhs>0</rhs>
-				</Condition>
-			</ConditionList>
-		</Action>
-		<Action sr="act26" ve="7">
-			<code>37</code>
-			<ConditionList sr="if">
-				<Condition sr="c0" ve="3">
-					<lhs>%MinInt</lhs>
-					<op>0</op>
-					<rhs>1</rhs>
-				</Condition>
-			</ConditionList>
-		</Action>
-		<Action sr="act27" ve="7">
-			<code>523</code>
-			<Str sr="arg0" ve="3">%PrecipitationState will continue for %MinInt minute ☔</Str>
-			<Str sr="arg1" ve="3"/>
-			<Str sr="arg10" ve="3"/>
-			<Str sr="arg11" ve="3">weather</Str>
-			<Img sr="arg2" ve="2">
-				<nme>mw_image_grain</nme>
-			</Img>
-			<Int sr="arg3" val="0"/>
-			<Int sr="arg4" val="0"/>
-			<Int sr="arg5" val="3"/>
-			<Int sr="arg6" val="0"/>
-			<Int sr="arg7" val="0"/>
-			<Int sr="arg8" val="0"/>
-			<Str sr="arg9" ve="3"/>
-		</Action>
-		<Action sr="act28" ve="7">
-			<code>43</code>
-		</Action>
-		<Action sr="act29" ve="7">
-			<code>523</code>
-			<Str sr="arg0" ve="3">%PrecipitationState will continue for %MinInt minutes ☔</Str>
-			<Str sr="arg1" ve="3"/>
-			<Str sr="arg10" ve="3"/>
-			<Str sr="arg11" ve="3">weather</Str>
-			<Img sr="arg2" ve="2">
-				<nme>mw_image_grain</nme>
-			</Img>
-			<Int sr="arg3" val="0"/>
-			<Int sr="arg4" val="0"/>
-			<Int sr="arg5" val="3"/>
-			<Int sr="arg6" val="0"/>
-			<Int sr="arg7" val="0"/>
-			<Int sr="arg8" val="0"/>
-			<Str sr="arg9" ve="3"/>
-		</Action>
-		<Action sr="act3" ve="7">
-			<code>547</code>
-			<Str sr="arg0" ve="3">%PrecipitationState</Str>
-			<Str sr="arg1" ve="3">Rain</Str>
-			<Int sr="arg2" val="0"/>
-			<Int sr="arg3" val="0"/>
-			<Int sr="arg4" val="0"/>
-			<Int sr="arg5" val="3"/>
-			<Int sr="arg6" val="1"/>
-		</Action>
-		<Action sr="act30" ve="7">
-			<code>38</code>
-		</Action>
-		<Action sr="act31" ve="7">
-			<code>137</code>
-			<Int sr="arg0" val="0"/>
-			<Str sr="arg1" ve="3"/>
-		</Action>
-		<Action sr="act32" ve="7">
-			<code>38</code>
-		</Action>
-		<Action sr="act33" ve="7">
-			<code>888</code>
-			<Str sr="arg0" ve="3">%MinInt</Str>
-			<Int sr="arg1" val="1"/>
-			<Int sr="arg2" val="0"/>
-		</Action>
-		<Action sr="act34" ve="7">
-			<code>40</code>
-		</Action>
-		<Action sr="act35" ve="7">
-			<code>523</code>
-			<Str sr="arg0" ve="3">%PrecipitationState will continue for the next hour ☔</Str>
-			<Str sr="arg1" ve="3"/>
-			<Str sr="arg10" ve="3"/>
-			<Str sr="arg11" ve="3">weather</Str>
-			<Img sr="arg2" ve="2">
-				<nme>mw_image_grain</nme>
-			</Img>
-			<Int sr="arg3" val="0"/>
-			<Int sr="arg4" val="0"/>
-			<Int sr="arg5" val="3"/>
-			<Int sr="arg6" val="0"/>
-			<Int sr="arg7" val="0"/>
-			<Int sr="arg8" val="0"/>
-			<Str sr="arg9" ve="3"/>
-		</Action>
-		<Action sr="act36" ve="7">
-			<code>137</code>
-			<Int sr="arg0" val="0"/>
-			<Str sr="arg1" ve="3"/>
-		</Action>
-		<Action sr="act37" ve="7">
-			<code>38</code>
-		</Action>
-		<Action sr="act38" ve="7">
-			<code>547</code>
-			<Str sr="arg0" ve="3">%MinInt</Str>
-			<Str sr="arg1" ve="3">0</Str>
-			<Int sr="arg2" val="0"/>
-			<Int sr="arg3" val="0"/>
-			<Int sr="arg4" val="0"/>
-			<Int sr="arg5" val="3"/>
-			<Int sr="arg6" val="1"/>
-		</Action>
-		<Action sr="act39" ve="7">
-			<code>39</code>
-			<coll>false</coll>
-			<Str sr="arg0" ve="3">%Minute</Str>
-			<Str sr="arg1" ve="3">%http_data.minutely()</Str>
-			<Int sr="arg2" val="1"/>
-		</Action>
-		<Action sr="act4" ve="7">
-			<code>43</code>
-		</Action>
-		<Action sr="act40" ve="7">
-			<code>37</code>
-			<coll>false</coll>
-			<ConditionList sr="if">
-				<Condition sr="c0" ve="3">
-					<lhs>%Minute.precipitation</lhs>
-					<op>7</op>
-					<rhs>0</rhs>
-				</Condition>
-			</ConditionList>
-		</Action>
-		<Action sr="act41" ve="7">
-			<code>37</code>
-			<ConditionList sr="if">
-				<Condition sr="c0" ve="3">
-					<lhs>%MinInt</lhs>
-					<op>0</op>
-					<rhs>1</rhs>
-				</Condition>
-			</ConditionList>
-		</Action>
-		<Action sr="act42" ve="7">
-			<code>523</code>
-			<Str sr="arg0" ve="3">%PrecipitationState will start in %MinInt minute ☔</Str>
-			<Str sr="arg1" ve="3"/>
-			<Str sr="arg10" ve="3"/>
-			<Str sr="arg11" ve="3">weather</Str>
-			<Img sr="arg2" ve="2">
-				<nme>mw_image_grain</nme>
-			</Img>
-			<Int sr="arg3" val="0"/>
-			<Int sr="arg4" val="0"/>
-			<Int sr="arg5" val="3"/>
-			<Int sr="arg6" val="0"/>
-			<Int sr="arg7" val="0"/>
-			<Int sr="arg8" val="0"/>
-			<Str sr="arg9" ve="3"/>
-		</Action>
-		<Action sr="act43" ve="7">
-			<code>43</code>
-		</Action>
-		<Action sr="act44" ve="7">
-			<code>523</code>
-			<Str sr="arg0" ve="3">%PrecipitationState will start in %MinInt minutes ☔</Str>
-			<Str sr="arg1" ve="3"/>
-			<Str sr="arg10" ve="3"/>
-			<Str sr="arg11" ve="3">weather</Str>
-			<Img sr="arg2" ve="2">
-				<nme>mw_image_grain</nme>
-			</Img>
-			<Int sr="arg3" val="0"/>
-			<Int sr="arg4" val="0"/>
-			<Int sr="arg5" val="3"/>
-			<Int sr="arg6" val="0"/>
-			<Int sr="arg7" val="0"/>
-			<Int sr="arg8" val="0"/>
-			<Str sr="arg9" ve="3"/>
-		</Action>
-		<Action sr="act45" ve="7">
-			<code>38</code>
-		</Action>
-		<Action sr="act46" ve="7">
-			<code>137</code>
-			<Int sr="arg0" val="0"/>
-			<Str sr="arg1" ve="3"/>
-		</Action>
-		<Action sr="act47" ve="7">
-			<code>38</code>
-		</Action>
-		<Action sr="act48" ve="7">
-			<code>888</code>
-			<Str sr="arg0" ve="3">%MinInt</Str>
-			<Int sr="arg1" val="1"/>
-			<Int sr="arg2" val="0"/>
-		</Action>
-		<Action sr="act49" ve="7">
-			<code>40</code>
-		</Action>
-		<Action sr="act5" ve="7">
-			<code>547</code>
-			<Str sr="arg0" ve="3">%PrecipitationState</Str>
-			<Str sr="arg1" ve="3">Snow</Str>
-			<Int sr="arg2" val="0"/>
-			<Int sr="arg3" val="0"/>
-			<Int sr="arg4" val="0"/>
-			<Int sr="arg5" val="3"/>
-			<Int sr="arg6" val="1"/>
-		</Action>
-		<Action sr="act6" ve="7">
-			<code>38</code>
-		</Action>
-		<Action sr="act7" ve="7">
-			<code>548</code>
-			<Str sr="arg0" ve="3">%gl_coordinates (%gl_coordinates_accuracy)</Str>
-			<Int sr="arg1" val="0"/>
-			<Str sr="arg10" ve="3"/>
-			<Int sr="arg11" val="1"/>
-			<Int sr="arg12" val="0"/>
-			<Str sr="arg13" ve="3"/>
-			<Int sr="arg14" val="0"/>
-			<Int sr="arg2" val="0"/>
-			<Str sr="arg3" ve="3"/>
-			<Str sr="arg4" ve="3"/>
-			<Str sr="arg5" ve="3"/>
-			<Str sr="arg6" ve="3"/>
-			<Str sr="arg7" ve="3"/>
-			<Str sr="arg8" ve="3"/>
-			<Int sr="arg9" val="1"/>
-		</Action>
 		<Action sr="act8" ve="7">
-			<code>779</code>
-			<Str sr="arg0" ve="3">%PrecipitationState will continue for %MinInt minutes ☔</Str>
-			<Int sr="arg1" val="0"/>
+			<code>137</code>
+			<Int sr="arg0" val="0"/>
+			<Str sr="arg1" ve="3"/>
 		</Action>
 		<Action sr="act9" ve="7">
-			<code>779</code>
-			<Str sr="arg0" ve="3">%PrecipitationState will continue for %MinInt minute ☔</Str>
-			<Int sr="arg1" val="0"/>
+			<code>38</code>
 		</Action>
 	</Task>
 </TaskerData>
