@@ -2,7 +2,7 @@
 
 Please feel free to use and modify any of these tasks as you see fit! If you find a bug, please [submit an issue in this repository](https://github.com/aarosmit/tasker-tasks/issues). If you make a task better, [submit an issue](https://github.com/aarosmit/tasker-tasks/issues) and I can try to incorporate your changes!
 
-## [Will it rain in the next hour?](Will_it_rain_.prf.xml)
+## [Will it rain?](Will_it_rain_.prf.xml)
 
   - This profile notifies you of any precipitation within the next hour for your current location.
     - Every five minutes, it fetches your location and then a weather forecast for that location using [OpenWeatherMap's OneCall API 3.0](https://openweathermap.org/api/one-call-3).
