@@ -2,9 +2,9 @@
 
 Please feel free to use and modify any of these tasks as you see fit! If you find a bug, please [submit an issue in this repository](https://github.com/aarosmit/tasker-tasks/issues). If you make a task better, [submit an issue](https://github.com/aarosmit/tasker-tasks/issues) and I can try to incorporate your changes!
 
-**Downloads are available on the [Releases page](https://github.com/aarosmit/tasker-tasks/releases)!**
+**Downloads are available on the [Releases page](https://github.com/aarosmit/tasker-tasks/releases) or through the TaskerNet links below!**
 
-## [Will it rain?](Will_it_rain_.prf.xml)
+## [Will it rain?](Will_it_rain_.prf.xml) ([TaskerNet](https://taskernet.com/shares/?user=AS35m8khgdlKUqH3A8l4hlHzPyAboljs64wgsYvPkKDEqLLboSV5qMXLNUBUw9IhDk0LzL0%3D&id=Profile%3AWill+it+rain%3F))
 
   - This profile notifies you of any precipitation within the next hour for your current location.
     - Every five minutes, it fetches your location and then a weather forecast for that location using [OpenWeatherMap's OneCall API 3.0](https://openweathermap.org/api/one-call-3).
