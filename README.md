@@ -1,6 +1,6 @@
 # My Tasker projects
 
-Please feel free to use and modify any of these tasks as you see fit! If you find a bug, please [submit an issue in this repository](https://github.com/aarosmit/tasker-tasks/issues). If you make a task better, [submit an issue](https://github.com/aarosmit/tasker-tasks/issues) and I can try to incorporate your changes!
+Please feel free to use and modify any of these projects as you see fit! If you find a bug, please [submit an issue in this repository](https://github.com/aarosmit/tasker-tasks/issues). If you make a project better, [submit an issue](https://github.com/aarosmit/tasker-tasks/issues) and I can try to incorporate your changes!
 
 **Downloads are available on the [Releases page](https://github.com/aarosmit/tasker-tasks/releases) or through the TaskerNet links below!**
 
@@ -19,4 +19,4 @@ Please feel free to use and modify any of these tasks as you see fit! If you fin
       - **Save your API key under a variable named "%OpenWeatherAPI".**
     - **This relies on OpenWeatherMap's "minutely" forecast, which is not available in every location** (but seems to have good coverage across the contiguous US and Europe). The task will flash a message if this is the case or if the HTTP Request to the API fails.
   - Inspiration
-    - Dark Sky once had an app for Android that would send you helpful alerts letting you know when rain would be starting/stopping. This task simply tries to mimic that. (But for free.)
+    - Dark Sky once had an app for Android that would send you helpful alerts letting you know when rain would be starting/stopping. This project simply tries to mimic that. (But for free.)
