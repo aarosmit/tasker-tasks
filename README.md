@@ -4,9 +4,9 @@ Please feel free to use and modify any of these tasks as you see fit! If you fin
 
 **Downloads are available on the [Releases page](https://github.com/aarosmit/tasker-tasks/releases) or through the TaskerNet links below!**
 
-## [Will it rain?](Will_it_rain_.prf.xml) ([TaskerNet](https://taskernet.com/shares/?user=AS35m8khgdlKUqH3A8l4hlHzPyAboljs64wgsYvPkKDEqLLboSV5qMXLNUBUw9IhDk0LzL0%3D&id=Profile%3AWill+it+rain%3F))
+## [Will it rain?](Will_it_rain_.prj.xml) ([TaskerNet](https://taskernet.com/shares/?user=AS35m8khgdlKUqH3A8l4hlHzPyAboljs64wgsYvPkKDEqLLboSV5qMXLNUBUw9IhDk0LzL0%3D&id=Project%3AWill+it+rain%3F))
 
-  - This profile notifies you of any precipitation within the next hour for your current location.
+  - This project notifies you of any precipitation within the next hour for your current location.
     - Every five minutes, it fetches your location and then a weather forecast for that location using [OpenWeatherMap's OneCall API 3.0](https://openweathermap.org/api/one-call-3).
     - It supports liquid and solid states of precipitation, which are based on the temperature of your current location (e.g. if temp < 32, then "snow"). I have chosen the terms "rain" and "snow" to identify these two forms of precipitation.
     - It classifies the intensity of the precipitation (light, moderate, heavy) using the parameters from [this website](https://www.baranidesign.com/faq-articles/2020/1/19/rain-rate-intensity-classification).
