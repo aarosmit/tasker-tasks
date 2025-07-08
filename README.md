@@ -4,7 +4,7 @@ Please feel free to use and modify any of these projects as you see fit! If you 
 
 **Downloads are available on the [Releases page](https://github.com/aarosmit/tasker-tasks/releases) or through the TaskerNet links below!**
 
-## [Will it rain?](Will_it_rain_.prj.xml) ([TaskerNet](https://taskernet.com/shares/?user=AS35m8khgdlKUqH3A8l4hlHzPyAboljs64wgsYvPkKDEqLLboSV5qMXLNUBUw9IhDk0LzL0%3D&id=Project%3AWill+it+rain%3F))
+## Will it rain? ([TaskerNet](https://taskernet.com/shares/?user=AS35m8khgdlKUqH3A8l4hlHzPyAboljs64wgsYvPkKDEqLLboSV5qMXLNUBUw9IhDk0LzL0%3D&id=Project%3AWill+it+rain%3F))
 
   - This project notifies you of any precipitation within the next hour for your current location.
     - Every five minutes, it fetches your location and then a weather forecast for that location using [OpenWeatherMap's OneCall API 3.0](https://openweathermap.org/api/one-call-3).
@@ -14,6 +14,7 @@ Please feel free to use and modify any of these projects as you see fit! If you 
       - If it is currently raining/snowing, the notification will let you know when the rain is expected to stop or if it will continue for the next hour.
       - If rain/snow is expected within the next hour, the notification will let you know when the rain/snow will start.
     - If no rain/snow is expected, no notification will be produced and remaining notifications will be cleared.
+    - Tapping the notification will open the weather app you define under the "open-weather" task.
   - Prerequisites
     - **You must sign up and get an API key at [OpenWeatherMap](https://openweathermap.org/api).** Make sure it is the OneCall API 3.0. You get 1,000 free calls per day, so just don't set your profile frequency faster than one activation every two minutes or so.
       - **Save your API key under a variable named "%OpenWeatherAPI".**
